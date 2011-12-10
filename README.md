@@ -4,14 +4,15 @@ _our real-world capture the flag game._
 
 ## Hacking on it
 
-1. Fork it.
-    - you'll likely want to pull down any changes, then run:
+1. Clone a copy: `git clone git@github.com:termisoc/capturetheflag.git CaptureTheFlag`.
+1. Then run:
     - `python manage.py syncdb` to get the database working.
     - and then `python manage.py runserver` to get it working.
 1. Make your changes.
 1. Don't update the README, or any tags or version numbers (we'll do that.)
-1. Send a pull request for your changes.
-1. If they're accepted (which they most likely will be), it'll get pushed live.
+1. Push your changes back up.
+
+Don't have commit access? Fork it, and send a pull request, and it'll get merged in.
 
 ## Found a bug?
 
