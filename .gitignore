@@ -1,0 +1,13 @@
+# ignore databases
+*.sqlite
+*.sqlite3
+
+# python/django specifics
+*.log
+*.pot
+*.pyc
+local_settings.py
+
+# vim
+*.swp
+*.swo
