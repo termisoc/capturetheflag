@@ -100,7 +100,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'CaptureTheFlag.urls'
+#Django is picky about how the folder is named. Your Git Client may take out the capitalization, uncomment as nessicary.
+#ROOT_URLCONF = 'CaptureTheFlag.urls'
+ROOT_URLCONF = 'capturetheflag.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
