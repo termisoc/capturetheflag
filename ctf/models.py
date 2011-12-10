@@ -22,6 +22,8 @@ class Sticker(models.Model):
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    def __unicode__(self):
+            return self.name
     
 class Clue(models.Model):
     text = models.TextField()
@@ -38,5 +40,4 @@ class Collection(models.Model):
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     def __unicode__(self):
-            rtn_str = (self.visitor.email + " collected " + self.sticker.name + " @ " + str(self.added))
-            return rtn_str
+            return (self.player.email + " collected " + self.sticker.name + " @ " + str(self.added))
