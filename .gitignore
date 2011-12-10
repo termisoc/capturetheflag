@@ -11,3 +11,7 @@ local_settings.py
 # vim
 *.swp
 *.swo
+
+capturetheflag.esproj/user.christopherhunt.espressostorage
+
+capturetheflag.esproj/Project.espressostorage
