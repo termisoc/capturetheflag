@@ -1,18 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
 import datetime
-
-class Player(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=75)
-    #tags = TaggableManager()
-    added = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    
-    def __unicode__(self):
-        return self.email
-            
+ 
 class Sticker(models.Model):
     name = models.CharField(max_length=30)
     lat = models.FloatField()
@@ -51,6 +40,20 @@ class GameNode(models.Model):
     
     def __unicode__(self):
         return (self.game.name + " node " + str(self.nodeNumber))
+
+class Player(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    username = models.CharField(max_length=30)
+    email = models.EmailField(max_length=75)
+    current_game = models.ForeignKey(Game)
+    #tags = TaggableManager()
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    def __unicode__(self):
+        return self.email
+
 
 class Collection(models.Model):
     player = models.ForeignKey(Player)
