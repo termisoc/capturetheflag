@@ -2,8 +2,6 @@ from django.db import models
 from django.forms import ModelForm
 import datetime
 
-# Create your models here.
-
 class Player(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -11,8 +9,9 @@ class Player(models.Model):
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
-            return self.email
+        return self.email
             
 class Sticker(models.Model):
     name = models.CharField(max_length=30)
@@ -23,8 +22,9 @@ class Sticker(models.Model):
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
-            return self.name
+        return self.name
     
 class Clue(models.Model):
     text = models.TextField()
@@ -32,30 +32,33 @@ class Clue(models.Model):
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    
-    
-class Collection(models.Model):
-    player = models.ForeignKey(Player)
-   	gameNode = models.ForeignKey(GameNode)
-    #tags = TaggableManager()
-    added = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    def __unicode__(self):
-            return (self.player.email + " collected " + self.sticker.name + " @ " + str(self.added))
-            
+ 
 class Game(models.Model):
     name = models.CharField(max_length=30)
     isActive = models.BooleanField()
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
     def __unicode__(self):
-            return self.name
+        return self.name
             
 class GameNode(models.Model):
     game = models.ForeignKey(Game)
     sticker = models.ForeignKey(Sticker)
     nodeNumber = models.IntegerField()
     isFlag = models.BooleanField()
+    
     def __unicode__(self):
-            return (self.game.name + " node " + str(self.nodeNumber))
+        return (self.game.name + " node " + str(self.nodeNumber))
+
+class Collection(models.Model):
+    player = models.ForeignKey(Player)
+    gameNode = models.ForeignKey(GameNode)
+    #tags = TaggableManager()
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    
+    def __unicode__(self):
+        return (self.player.email + " collected " + self.sticker.name + " @ " + str(self.added))
+ 
