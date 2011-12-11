@@ -19,6 +19,7 @@ class Sticker(models.Model):
     lat = models.FloatField()
     lon = models.FloatField()
     keyword = models.CharField(max_length=10)
+    information = models.TextField()
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -35,7 +36,7 @@ class Clue(models.Model):
     
 class Collection(models.Model):
     player = models.ForeignKey(Player)
-    sticker = models.ForeignKey(Sticker)
+   	gameNode = models.ForeignKey(GameNode)
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -44,6 +45,7 @@ class Collection(models.Model):
             
 class Game(models.Model):
     name = models.CharField(max_length=30)
+    isActive = models.BooleanField()
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
