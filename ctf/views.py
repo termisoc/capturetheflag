@@ -8,6 +8,9 @@ def player(request, player_name):
 def new_player(request):
     return HttpResponse('/player/new')
 
+def new_game(request):
+    return HttpResponse("/game/new")
+
 def game(request, game_id):
     return HttpResponse("/game/%s" % game_id)
 
