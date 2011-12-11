@@ -4,7 +4,12 @@ from django.shortcuts import render_to_response
 from ctf.models import *
 
 def player(request, player_name):
-    return render_to_response('player.html', {'player_name': player_name})
+    # grab the current player
+    player = Player.objects.get(username = player_name)
+    # pull out the game
+    clues  = Clue.objects.filter(sticker = player.current_game)
+
+    return render_to_response('player.html', {'player_name': player.username, 'clues': clues})
 
 def new_player(request):
     return HttpResponse('/player/new')
