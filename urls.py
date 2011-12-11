@@ -9,6 +9,23 @@ urlpatterns = patterns('',
     # url(r'^$', 'CaptureTheFlag.views.home', name='home'),
     # url(r'^CaptureTheFlag/', include('CaptureTheFlag.foo.urls')),
 
+    # players
+    (r'^player/(?P<player_name>\w+)$', 'ctf.views.player'),
+    # register
+    (r'player/new$', 'ctf.views.new_player'),
+
+    # new game
+    (r'^game/new$', 'ctf.views.new_game'),
+    # specific game
+    (r'^game/(?P<game_id>\d+)$', 'ctf.views.game'),
+    
+    # flags
+    (r'^game/(?P<game_id>\d+)/flag/(?P<flag_id>\d+)$', 'ctf.views.flag'),
+    # next flag
+    (r'^game/(?P<game_id>\d+)/flag/next$', 'ctf.views.next_flag'),
+    # catch flag
+    (r'^game/(?P<game_id>\d+)/flag/(?P<flag_id>\d+)/catch$', 'ctf.views.catch_flag'),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
