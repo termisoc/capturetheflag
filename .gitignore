@@ -12,6 +12,9 @@ local_settings.py
 *.swp
 *.swo
 
+# Mac Specific
+*.DS_Store
+
 capturetheflag.esproj/user.christopherhunt.espressostorage
 
 capturetheflag.esproj/Project.espressostorage
