@@ -35,7 +35,6 @@ class Clue(models.Model):
     
 class Collection(models.Model):
     player = models.ForeignKey(Player)
-    sticker = models.ForeignKey(Sticker)
    	gameNode = models.ForeignKey(GameNode)
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
