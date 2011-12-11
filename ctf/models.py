@@ -41,3 +41,19 @@ class Collection(models.Model):
     updated = models.DateTimeField(auto_now=True)
     def __unicode__(self):
             return (self.player.email + " collected " + self.sticker.name + " @ " + str(self.added))
+            
+class Game(models.Model):
+    name = models.CharField(max_length=30)
+    #tags = TaggableManager()
+    added = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    def __unicode__(self):
+            return self.name
+            
+class GameNode(models.Model):
+    game = models.ForeignKey(Game)
+    sticker = models.ForeignKey(Sticker)
+    nodeNumber = models.IntegerField()
+    isFlag = models.BooleanField()
+    def __unicode__(self):
+            return (self.game.name + " node " + str(self.nodeNumber))
