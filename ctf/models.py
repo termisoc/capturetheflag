@@ -1,5 +1,6 @@
 from django.db import models
 from django.forms import ModelForm
+from django.contrib.auth.models import User
 import datetime
  
 class Sticker(models.Model):
@@ -42,10 +43,11 @@ class GameNode(models.Model):
         return (self.game.name + " node " + str(self.nodeNumber))
 
 class Player(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    username = models.CharField(max_length=30)
-    email = models.EmailField(max_length=75)
+    #first_name = models.CharField(max_length=30)
+    #last_name = models.CharField(max_length=30)
+    #username = models.CharField(max_length=30)
+    #email = models.EmailField(max_length=75)
+    user = models.OneToOneField(User)
     current_game = models.ForeignKey(Game)
     #tags = TaggableManager()
     added = models.DateTimeField(auto_now_add=True)
