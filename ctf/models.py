@@ -54,7 +54,7 @@ class Player(models.Model):
     updated = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
-        return self.email
+        return self.user.email
 
 
 class Collection(models.Model):
